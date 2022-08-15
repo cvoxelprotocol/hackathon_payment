@@ -23,13 +23,7 @@ export const Header = () => {
             <a className="btn btn-ghost normal-case text-xl">
                 <Link href="/" passHref>
                     <div className="text-center flex">
-                    <Image
-                        src="/logo.png"
-                        alt="contx"
-                        objectFit="cover"
-                        width="170px"
-                        height="60px"
-                    />
+                    <h1 className="text-3xl font-bold">Hack Pay</h1>
                     </div>
                 </Link>
             </a>
@@ -37,7 +31,7 @@ export const Header = () => {
         <div className="flex-none sm:space-x-3 items-center ">
             {showPayBtn && (
                 <div className="flex items-center">
-                    <Button onClick={() => createNewPayment()} type="button" className="px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r">New</Button>
+                    <Button onClick={() => createNewPayment()} type="button" className="px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r border-none">New</Button>
                 </div>
             )}
             <div className="flex items-center">

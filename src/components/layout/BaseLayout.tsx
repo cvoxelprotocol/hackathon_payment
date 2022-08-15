@@ -16,7 +16,7 @@ export const BaseLayout = ({ children }: Props) => {
   const router = useRouter();
 
   return (
-    <div className="min-w-full w-full bg-[#050505]">
+    <div className="min-w-full w-full ">
       <div className={"text-sm "}>
         <Header />
             <div className="mx-auto px-4 w-full min-h-screen overflow-y-scroll break-words">

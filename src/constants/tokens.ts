@@ -65,7 +65,7 @@ export const isETH = (token: string) =>
 export const tokenColorStyle: StylesConfig<TokenType> = {
   control: (styles) => ({
     ...styles,
-    backgroundColor: "#242424",
+    backgroundColor: "#F2F2F2",
     border: 0,
     boxShadow: "none",
   }),
@@ -76,19 +76,13 @@ export const tokenColorStyle: StylesConfig<TokenType> = {
   option: (styles, { isFocused, isSelected }) => {
     return {
       ...styles,
-      color: "white",
-      backgroundColor: isSelected
-        ? "#323232"
-        : isFocused
-        ? "#323232"
-        : "#242424",
-      ":active": {
-        ...styles[":active"],
-        backgroundColor: "#323232",
-      },
+      color: isSelected ? "white" : "#1F2937",
+      backgroundColor: isSelected ? "#D926A9" : "#F2F2F2",
       ":hover": {
         ...styles[":hover"],
-        backgroundColor: "#323232",
+        color: "white",
+        backgroundColor: "#D926A9",
+        opacity: isSelected ? "1" : "0.7",
       },
       fontWeight: "bold",
     };
@@ -96,12 +90,12 @@ export const tokenColorStyle: StylesConfig<TokenType> = {
   input: (styles) => ({ ...styles, fontWeight: "bold" }),
   placeholder: (styles) => ({
     ...styles,
-    color: "white",
+    color: "#1F2937",
     fontWeight: "bold",
   }),
   singleValue: (styles) => ({
     ...styles,
-    color: "white",
+    color: "#1F2937",
     fontWeight: "bold",
   }),
 };

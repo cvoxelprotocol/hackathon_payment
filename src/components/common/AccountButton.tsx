@@ -54,7 +54,7 @@ export default function AccountButton() {
     </>
 
     const content = (
-      <div className="bg-card text-oncard p-4">
+      <div className="p-4">
         <div className="space-y-4 text-center p-2">
           <div className="flex items-center justify-center">
             {avator ? (
@@ -84,7 +84,7 @@ export default function AccountButton() {
                   hiddenLabelOnSp={true}
                 />
           </label>
-          <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+          <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-300 shadow">
               {content}
           </div>
       </div>

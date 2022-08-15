@@ -11,7 +11,7 @@ export const PayContainer:FC = () => {
     }
 
     return (
-        <main className="text-white text-center h-screen overflow-hidden flex justify-center ">
+        <main className=" text-center h-screen overflow-hidden flex justify-center ">
             <PayCard onSubmit={execPay}/>
         </main>
     )

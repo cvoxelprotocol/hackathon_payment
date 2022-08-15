@@ -23,10 +23,10 @@ export const WorkCredentialCard: FC<WorkCredentialCardProps> = ({wc}) => {
 
     if(!detail) {
         return (
-            <Card bordered className=" bg-card w-auto h-60 m-2">
-                <Card.Body>
-                    <Card.Title tag="h2">{wc.summary}</Card.Title>
-                    <p>{wc.id}</p>
+            <Card bordered className="w-auto h-60 m-2 bg-base-300">
+                <Card.Body className="bg-base-300">
+                    <Card.Title tag="h2" className="text-2xl">{wc.summary}</Card.Title>
+                    {/* <p>{wc.id}</p> */}
                     {wc?.deliverables && wc.deliverables.map(d => {
                       return (
                         <div key={d.value}>
@@ -65,11 +65,11 @@ export const WorkCredentialCard: FC<WorkCredentialCardProps> = ({wc}) => {
 
 
     return (
-        <Card bordered className=" bg-card w-auto h-60 m-2">
-            <Card.Body className="text-left">
-                <Card.Title tag="h2">{detail.summary}</Card.Title>
-                <p>{shortenStr(wc.id)}</p>
-                <p>{shortenStr(detail.detail, 200)}</p>
+        <Card bordered className=" w-auto h-60 m-2">
+            <Card.Body className="text-left bg-base-300">
+                <Card.Title tag="h2" className="text-2xl">{detail.summary}</Card.Title>
+                {/* <p>{shortenStr(wc.id)}</p> */}
+                <p className="text-lg">{shortenStr(detail.detail, 200)}</p>
                 {wc?.deliverables && wc.deliverables.map(d => {
                       return (
                         <div key={d.value}>
@@ -94,7 +94,7 @@ export const WorkCredentialCard: FC<WorkCredentialCardProps> = ({wc}) => {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            {shortHash(wc.txHash)}
+                            TxHash: {shortHash(wc.txHash)}
                         </a>
                     <Image src={"/link.svg"} width={16} height={16} objectFit="contain" alt="link" />
                 </div>

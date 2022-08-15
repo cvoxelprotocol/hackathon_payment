@@ -27,12 +27,12 @@ export const ConnectWalletModal: FC = () => {
                 <Modal.Header>Connect Wallet</Modal.Header>
 
                 <Modal.Body className="text-center w-full space-y-2">
-                    <Button className="w-full" onClick={() => connect("metamask")} startIcon={metaMask} >Metamask</Button>
-                    <Button className="w-full" onClick={() => connect("walletconnect")} startIcon={walletConnect} >Wallet Connect</Button>
+                    <Button className="w-full bg-base-300 border-none text-base-content hover:bg-base-content hover:text-white" onClick={() => connect("metamask")} startIcon={metaMask} >Metamask</Button>
+                    <Button className="w-full bg-base-300 border-none text-base-content hover:bg-base-content hover:text-white" onClick={() => connect("walletconnect")} startIcon={walletConnect} >Wallet Connect</Button>
                 </Modal.Body>
 
                 <Modal.Actions>
-                    <Button onClick={() => setShow(false)} color="primary">
+                    <Button onClick={() => setShow(false)} color="secondary">
                         Close
                     </Button>
                 </Modal.Actions>

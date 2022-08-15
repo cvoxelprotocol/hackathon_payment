@@ -15,8 +15,8 @@ export const UserContainer:FC<UserContainerProps> = ({did}) => {
     const workCredentials = useWCRecords(did)
 
     return (
-        <main className="text-white text-center h-screen">
-            <Card bordered normal={"lg"} className="w-full bg-card">
+        <main className="text-center h-screen">
+            <Card bordered normal={"lg"} className="w-full bg-base-300">
                 <Card.Body className={"text-left"}>
                 <DisplayAvatar
                   did={did}

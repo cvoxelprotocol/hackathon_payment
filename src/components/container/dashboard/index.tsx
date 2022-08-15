@@ -8,7 +8,7 @@ export const DashBoardContainer:FC = () => {
     const [dashboardTab, setTab] = useManageTab()
 
     return (
-        <main className="text-white text-center h-screen overflow-hidden ">
+        <main className="text-center h-screen overflow-hidden ">
 
             {/* tabs */}
             <div className="tabs tab-lifted">

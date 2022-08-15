@@ -30,8 +30,8 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
     
     return (
         <>
-        <Card bordered normal={"lg"} className="w-[600px] h-[600px] md:h-[750px] bg-card overflow-hidden">
-            <Card.Body className={"text-left"}>
+        <Card bordered normal={"lg"} className="w-[600px] h-[600px] md:h-[750px] bg-base-300 overflow-hidden">
+            <Card.Body className={"text-left bg-base-300"}>
                 <form
                     className="w-full h-full"
                     onSubmit={handleSubmit(onClickSubmit)}
@@ -48,7 +48,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                         <div className="mb-3">
                             <input
-                            className="w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                            className="bg-base-200 w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                             placeholder={"0x12345678..."}
                             {...register("to", { required: "Please enter the TO address" })}
                             />
@@ -61,7 +61,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                         <div className="mb-3 flex items-center space-x-2">
                             <input
-                                className="min-w-[120px] sm:min-w-fit sm:flex-1 my-1 py-2 px-6 rounded-full text-sm md:text-base bg-form border-none hover:border-none focus:outline-white appearance-none"
+                                className="bg-base-200 min-w-[120px] sm:min-w-fit sm:flex-1 my-1 py-2 px-6 rounded-full text-sm md:text-base  border-none hover:border-none focus:outline-white appearance-none"
                                 placeholder={"0.0"}
                                 {...register("value", { required: "Please enter amount more than 0" })}
                             />
@@ -92,7 +92,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                         <div className="mb-3">
                             <input
-                            className="w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                            className="bg-base-200 w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                             placeholder={"Enter a summary... (e.g.Bitcoin Development)"}
                             {...register("summary", { required: "Please enter a summary" })}
                             />
@@ -104,7 +104,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                         <div className="mb-3">
                             <textarea
-                            className="w-full my-1 py-2 px-6 border rounded-xl text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                            className="bg-base-200 w-full my-1 py-2 px-6 border rounded-xl text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                             rows={3}
                             placeholder={"Write your description here..."}
                             {...register("detail")}
@@ -120,7 +120,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                         <div className="mb-3">
                             <input
-                            className="w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                            className="bg-base-200 w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                             placeholder={"Enter Deliverable link.."}
                             {...register("deliverableLink")}
                             />
@@ -128,7 +128,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         <div className="mb-3">
                             {cid && (
                             <p
-                                className="w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none text-left"
+                                className="w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none text-left"
                             >{cid}</p> 
                             )}
                             <FileUploader />
@@ -147,7 +147,7 @@ export const PayCard:FC<PayCardProps> = ({onSubmit}) => {
                         </div>
                     </div>
                     <Card.Actions className="justify-end">
-                        <Button type="submit" className="text-white bg-gradient-to-r from-border_l via-border_via to-border_r">Transfer</Button>
+                        <Button type="submit" className="text-white bg-gradient-to-r from-border_l via-border_via to-border_r border-none">Transfer</Button>
                     </Card.Actions>
                 </form>
                 </Card.Body>

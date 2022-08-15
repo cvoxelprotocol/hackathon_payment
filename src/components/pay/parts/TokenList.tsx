@@ -29,7 +29,7 @@ export const TokenList: FC<TokenListProps> = ({ handleToken, token }) => {
         options={tokenList}
         styles={tokenColorStyle}
         placeholder={"Select Token"}
-        className={"rounded-lg border-none hover:border-none focus:outline-white"}
+        className={"rounded-lg border-none hover:border-none focus:outline-white bg-base-200 "}
       />
   );
 };

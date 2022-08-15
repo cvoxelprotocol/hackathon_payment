@@ -8,13 +8,7 @@ export const Footer: FC = () => {
     <div>
         <Link href="/" passHref>
             <div className="text-center flex">
-            <Image
-                src="/logo.png"
-                alt="logo"
-                objectFit="cover"
-                width="154px"
-                height="44px"
-            />
+              <h1 className="text-4xl font-bold">Hack Pay</h1>
             </div>
         </Link>
     <p>Copyright © {new Date().getFullYear()}</p>

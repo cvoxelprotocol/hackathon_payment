@@ -32,7 +32,7 @@ export const CreateContainer:FC = () => {
 
     return (
         <main className=" text-center h-screen overflow-hidden flex justify-center ">
-            <Card bordered normal={"lg"} className="w-[600px] h-[600px] md:h-[750px] bg-neutral overflow-hidden">
+            <Card bordered normal={"lg"} className="w-[600px] h-[600px] md:h-[750px] overflow-hidden bg-base-300">
                 <Card.Body className={"text-left"}>
                     <form
                         className="w-full h-full"
@@ -52,7 +52,7 @@ export const CreateContainer:FC = () => {
                             </div>
                             <div className="mb-3">
                                 <input
-                                className="w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                                className="bg-base-200 w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                                 placeholder={"Enter an account name"}
                                 {...register("name", { required: "Please enter a guild name" })}
                                 />
@@ -68,7 +68,7 @@ export const CreateContainer:FC = () => {
                             </div>
                             <div className="mb-3">
                                 <input
-                                className="w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none"
+                                className="bg-base-200 w-full my-1 py-1 px-6 rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none"
                                 placeholder={""}
                                 {...register("fundAddress")}
                                 />
@@ -81,7 +81,7 @@ export const CreateContainer:FC = () => {
                             <div className="mb-3">
                                 {fullPath && (
                                 <p
-                                    className="w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm bg-form border-none hover:border-none focus:outline-white appearance-none text-left"
+                                    className="w-full my-1 py-1 px-6 border rounded-full text-xs md:text-sm  border-none hover:border-none focus:outline-white appearance-none text-left"
                                 >{fullPath}</p> 
                                 )}
                                 <FileUploader />
