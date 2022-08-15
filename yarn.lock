@@ -7233,13 +7233,6 @@ react-daisyui@^2.0.4:
   resolved "https://registry.npmjs.org/react-daisyui/-/react-daisyui-2.0.4.tgz"
   integrity sha512-hse9zEmSz/rf7icFEOivgygLNJhbw49LCQuDH6YkiJJkt4WDKy8S6K6RMrW/SRaFJUcIXhjwmQf9EtEJUnTMnA==
 
-react-device-detect@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/react-device-detect/-/react-device-detect-2.2.2.tgz"
-  integrity sha512-zSN1gIAztUekp5qUT/ybHwQ9fmOqVT1psxpSlTn1pe0CO+fnJHKRLOWWac5nKxOxvOpD/w84hk1I+EydrJp7SA==
-  dependencies:
-    ua-parser-js "^1.0.2"
-
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
@@ -8308,11 +8301,6 @@ u3@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/u3/-/u3-0.1.1.tgz"
   integrity sha512-+J5D5ir763y+Am/QY6hXNRlwljIeRMZMGs0cT6qqZVVzzT3X3nFPXVyPOFRMOR4kupB0T8JnCdpWdp6Q/iXn3w==
-
-ua-parser-js@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-1.0.2.tgz"
-  integrity sha512-00y/AXhx0/SsnI51fTc0rLRmafiGOM4/O+ny10Ps7f+j/b8p/ZY11ytMgznXkOVo4GQ+KwQG5UQLkLGirsACRg==
 
 uint8arrays@^3.0.0:
   version "3.0.0"

@@ -6,6 +6,9 @@ import { IconAvatar } from "./IconAvatar";
 import { useMyCeramicAcount } from "@/hooks/useCeramicAcount";
 import { useSetConnectWalletModal } from "@/jotai/ui";
 import { Button } from "react-daisyui";
+import { useContext } from "react";
+import { DIDContext } from "@/context/DIDContext";
+import { useWalletAccount } from "@/hooks/useWalletAccount";
 
 type MenuButtonProps = {
   label: string;
@@ -24,22 +27,19 @@ function MenuButton({ label, ...props }: MenuButtonProps) {
 
 export default function AccountButton() {
   const {
-    connection,
-    disconnectCeramic,
-    connectCeramic,
-    account,
-    did,
     name,
     avator,
   } = useMyCeramicAcount();
+  const {did, account, connection} = useContext(DIDContext)
+  const { connectWallet, disconnectWallet } = useWalletAccount();
   const setShow = useSetConnectWalletModal()
 
   const goToMypage = () => {
     Router.push(`/dashboard`);
   };
-  const goToWCs = async (did:string) => {
+  const goToWCs = async (did?:string) => {
     if(!did) {
-      await connectCeramic()
+      await connectWallet()
       return
     }
     Router.push(`/${did}`);
@@ -50,7 +50,7 @@ export default function AccountButton() {
     <>
       <MenuButton label="Work Credentials" onClick={() => goToWCs(did)} />
       <MenuButton label="Dashboard" onClick={() => goToMypage()} />
-      <MenuButton label="Disconnect" onClick={() => disconnectCeramic()} />
+      <MenuButton label="Disconnect" onClick={() => disconnectWallet()} />
     </>
 
     const content = (
@@ -79,7 +79,7 @@ export default function AccountButton() {
                   label={
                     name ? name : did ? formatDID(did, 12) : formatDID(account, 12)
                   }
-                  loading={connection.status === "connecting"}
+                  loading={connection?.status === "connecting"}
                   src={avator}
                   hiddenLabelOnSp={true}
                 />
@@ -91,11 +91,11 @@ export default function AccountButton() {
     );
   }
 
-  return connection.status === "connecting" ? (
+  return connection?.status === "connecting" ? (
     <DisplayAvatar label="Connecting..." loading hiddenLabelOnSp={true} />
   ) : (
     <Button
-      className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r"
+      className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r border-none"
       onClick={() => setShow(true)}
     >
       {" "}

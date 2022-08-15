@@ -2,7 +2,6 @@ import { injected, WalletConnect } from "@/lib/wallet/connector";
 import { Web3Provider } from "@ethersproject/providers";
 import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
 import { useToast } from "./useToast";
-import { isMobile } from "react-device-detect";
 import {
   NoEthereumProviderError,
   UserRejectedRequestError as UserRejectedRequestErrorInjected,
@@ -37,13 +36,9 @@ export const useWalletAccount = () => {
   const connectWallet = async () => {
     await activate(injected, async (error) => {
       if (error instanceof NoEthereumProviderError) {
-        if (isMobile) {
-          openMetamaskViaDeepLink();
-        } else {
-          contxError(
-            "Error: Please install MetaMask on desktop or visit from a dApp browser on mobile."
-          );
-        }
+        contxError(
+          "Error: Please install MetaMask on desktop or visit from a dApp browser on mobile."
+        );
       } else if (error instanceof UnsupportedChainIdError) {
         if (
           (window as any).ethereum &&
@@ -101,11 +96,6 @@ export const useWalletAccount = () => {
 
   const disconnectWallet = () => {
     deactivate();
-  };
-
-  const openMetamaskViaDeepLink = () => {
-    //TODO: set url to env
-    window.open("https://metamask.app.link/dapp/testnet.cvoxel.xyz/", "_blank");
   };
 
   const switchNetwork = async (chainId: number) => {

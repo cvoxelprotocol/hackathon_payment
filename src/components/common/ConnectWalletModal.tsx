@@ -1,4 +1,4 @@
-import { useMyCeramicAcount } from "@/hooks/useCeramicAcount";
+import { useWalletAccount } from "@/hooks/useWalletAccount";
 import { useShowConnectWalletModal } from "@/jotai/ui";
 import Image from "next/image";
 import { FC } from "react";
@@ -7,13 +7,17 @@ import { Modal,Button } from "react-daisyui";
 export const ConnectWalletModal: FC = () => {
 
     const [isShow, setShow] = useShowConnectWalletModal()
-    const { connectWalletOnly } = useMyCeramicAcount();
+    const { connectWallet, connectWalletWithWC } = useWalletAccount();
 
     const metaMask = <Image src={"/metamask.svg"} width={48} height={48} objectFit="contain" alt="metamask" />
     const walletConnect = <Image src={"/wallet_connect.svg"} width={48} height={48} objectFit="contain" alt="metamask" />
 
-    const connect = (type: "metamask" | "walletconnect") => {
-        connectWalletOnly(type)
+    const connect = async (type: "metamask" | "walletconnect") => {
+        if(type==="metamask"){
+            await connectWallet()
+        } else {
+            await connectWalletWithWC()
+        }
         setShow(false)
     }
 

@@ -1,6 +1,7 @@
+import { DIDContext } from "@/context/DIDContext";
 import { Payment } from "@/interfaces";
-import { createClient, gql, useQuery } from "urql";
-import { useMyCeramicAcount } from "./useCeramicAcount";
+import { useContext } from "react";
+import { useQuery } from "urql";
 
 const PAYER_QUERY = `
 query Payer($payer: String) {
@@ -23,7 +24,7 @@ query Payee($payee: String) {
   }`;
 
 export const useGraph = () => {
-  const { account } = useMyCeramicAcount();
+  const { account } = useContext(DIDContext);
   const [payerList] = useQuery<{ payments: Payment[] }>({
     query: PAYER_QUERY,
     variables: { payer: account },

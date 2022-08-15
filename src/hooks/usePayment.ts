@@ -5,6 +5,7 @@ import {
   WorkCredential,
   WorkCredentialForm,
 } from "@/interfaces";
+import { useStateMySelfID } from "@/jotai";
 import {
   PaymentStatusType,
   useSetConnectWalletModal,
@@ -24,7 +25,6 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { Web3Provider } from "@self.id/multiauth";
 import { useViewerRecord } from "@self.id/react";
 import { useWeb3React } from "@web3-react/core";
-import { useMyCeramicAcount } from "./useCeramicAcount";
 import { useContracts } from "./useContract";
 import { useToast } from "./useToast";
 import { useWalletAccount } from "./useWalletAccount";
@@ -39,7 +39,7 @@ export const usePayment = () => {
   const setShow = useSetPaymentModal();
   const setPaymentStatus = useSetPaymentStatus();
   const setWalletModalShow = useSetConnectWalletModal();
-  const { connectCeramic, mySelfID } = useMyCeramicAcount();
+  const [mySelfID, _] = useStateMySelfID();
   const wcsRecord = useViewerRecord<ModelTypes, "workCredentials">(
     "workCredentials"
   );
@@ -87,10 +87,8 @@ export const usePayment = () => {
     setShow(true);
     setPaymentStatus(PaymentStatusType.SavingDeliverables);
 
-    const selfID = mySelfID ?? (await connectCeramic());
-    if (selfID == null || selfID.did == null) {
-      contxError();
-      setPaymentStatus(PaymentStatusType.failed);
+    if (mySelfID == null || mySelfID.did == null) {
+      await connectWallet();
       return false;
     }
     if (!wcsRecord.isLoadable) {
@@ -104,7 +102,7 @@ export const usePayment = () => {
       //store data to ceramic
       const { wc, hash } = genWorkCredential(data, account, chainId);
       console.log({ wc });
-      const doc = await selfID.client.dataModel.createTile("WorkCredential", {
+      const doc = await mySelfID.client.dataModel.createTile("WorkCredential", {
         ...wc,
       });
       const wcs = wcsRecord.content?.WorkCredentials ?? [];
@@ -197,7 +195,7 @@ export const usePayment = () => {
 
               console.log({ wcWithSig });
 
-              const res = await selfID.client.tileLoader.update(docUrl, {
+              const res = await mySelfID.client.tileLoader.update(docUrl, {
                 ...wcWithSig,
               });
 

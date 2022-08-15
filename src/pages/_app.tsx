@@ -10,6 +10,7 @@ import { BaseLayout } from '@/components/layout/BaseLayout';
 import { CERAMIC_NETWORK, CERAMIC_URL } from "@/constants/common";
 import { ModelTypes } from '@/interfaces/workcredential';
 import { createClient, Provider as UrqlProvider } from 'urql';
+import { DIDContextProvider } from '@/context/DIDContext';
 
 const client = createClient({
   url: "https://api.studio.thegraph.com/query/21459/contx/v0.0.1",
@@ -35,12 +36,16 @@ function MyApp({ Component, pageProps }: AppProps) {
                   ceramic: CERAMIC_URL,
                   connectNetwork: CERAMIC_NETWORK,
                   aliases,
+                  session: true
                 }}
                 state={state}
+                session={true}
               >
-              <BaseLayout>
-                <Component {...pageProps} />
-              </BaseLayout>
+                <DIDContextProvider >
+                  <BaseLayout>
+                    <Component {...pageProps} />
+                  </BaseLayout>
+              </DIDContextProvider>
             </SelfIDProvider>
           </Web3ReactProvider>
           </UrqlProvider>
